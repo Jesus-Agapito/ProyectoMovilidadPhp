@@ -1,0 +1,39 @@
+<?php
+
+class Empleado{
+    private string $nombre;
+    private string $apellidos;
+    private string $sueldo;
+
+    public function getNombre(): string{
+        return $this->nombre;
+    }
+
+    public function setNombre(string $nombre): void{
+        $this->nombre = $nombre;
+    }
+
+    public function getApellidos(): string{
+        return $this->apellidos;
+    }
+
+    public function setApellidos(string $apellidos): void{
+        $this->apellidos = $apellidos;
+    }
+
+    public function getSueldo(): string{
+        return $this->sueldo;
+    }
+
+    public function setSueldo(string $sueldo): void{
+        $this->sueldo = $sueldo;
+    }
+
+    public function getNombreCompleto(): string{
+       return "<p>" . $this->getNombre() . " " . $this->getApellidos() . "</p>";
+    }
+
+    public function debePagarImpuestos(): bool{
+        return $this->getSueldo() > 3333;
+    }
+}
