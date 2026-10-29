@@ -1,4 +1,5 @@
 <?php
+namespace Dwes\AlquilerMovilidad;
 
 require_once 'Resumible.php';
 

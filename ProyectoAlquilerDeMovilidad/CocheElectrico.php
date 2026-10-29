@@ -1,8 +1,9 @@
 <?php
+namespace Dwes\AlquilerMovilidad;
 
 require_once "Vehiculo.php";
 
-class CocheElectrico extends Vehiculo{
+class CocheElectrico extends Vehiculo {
     public function __construct(
         string $titulo,
         int $numero,
@@ -10,42 +11,33 @@ class CocheElectrico extends Vehiculo{
         private string $marca,
         private int $plazasMin,
         private int $plazasMax
-    )
-    {
+    ) {
         parent::__construct($titulo, $numero, $precio);
     }
 
-    public function getMarca(): string
-    {
+    public function getMarca(): string {
         return $this->marca;
     }
 
-    public function setMarca(string $marca): void
-    {
+    public function setMarca(string $marca): void {
         $this->marca = $marca;
     }
 
-    public function getPlazasMin(): int
-    {
+    public function getPlazasMin(): int {
         return $this->plazasMin;
     }
 
-    public function setPlazasMin(int $plazasMin): void
-    {
+    public function setPlazasMin(int $plazasMin): void {
         $this->plazasMin = $plazasMin;
     }
 
-    public function getPlazasMax(): int
-    {
+    public function getPlazasMax(): int {
         return $this->plazasMax;
     }
 
-    public function setPlazasMax(int $plazasMax): void
-    {
+    public function setPlazasMax(int $plazasMax): void {
         $this->plazasMax = $plazasMax;
     }
-
-
 
     public function muestraInfoPlazas(): string {
         if ($this->plazasMin === 1 && $this->plazasMax === 1) {

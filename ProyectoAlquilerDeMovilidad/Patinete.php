@@ -1,6 +1,9 @@
 <?php
+namespace Dwes\AlquilerMovilidad;
+
 require_once "Vehiculo.php";
-class Patinete extends Vehiculo{
+
+class Patinete extends Vehiculo {
     public function __construct(
         string $titulo,
         int $numero,
@@ -11,10 +14,8 @@ class Patinete extends Vehiculo{
         parent::__construct($titulo, $numero, $precio);
     }
 
-
     public function muestraResumen(): void {
         parent::muestraResumen();
-
         echo "Autonomía: " . $this->autonomiaKm . " km";
         echo "Velocidad máxima: " . $this->velocidadMaxKmH . " km/h";
     }

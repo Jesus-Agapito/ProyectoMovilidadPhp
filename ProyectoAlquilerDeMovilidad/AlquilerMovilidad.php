@@ -1,4 +1,5 @@
 <?php
+namespace Dwes\AlquilerMovilidad;
 
 require_once 'Vehiculo.php';
 require_once 'Patinete.php';
@@ -47,7 +48,8 @@ class AlquilerMovilidad {
         $this->clientes[] = new Cliente($nombre, $this->contadorClientes++, $maxAlquilerConcurrente);
     }
 
-    public function alquilarClienteVehiculo(int $numSocio, int $numVehiculo): void {
+    // Modificado para retornar self y permitir encadenamiento de métodos (v0.331)
+    public function alquilarClienteVehiculo(int $numSocio, int $numVehiculo): self {
         $clienteEncontrado = null;
         foreach ($this->clientes as $cliente) {
             if ($cliente->getNumero() === $numSocio) {
@@ -69,6 +71,8 @@ class AlquilerMovilidad {
         } else {
             echo "<p>Error: Socio o vehículo no encontrado.</p>";
         }
+
+        return $this;
     }
 
     public function listarSocios(): void {

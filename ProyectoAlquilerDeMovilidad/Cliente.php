@@ -1,4 +1,5 @@
 <?php
+namespace Dwes\AlquilerMovilidad;
 
 require_once 'Vehiculo.php';
 
@@ -34,19 +35,12 @@ class Cliente {
     }
 
     public function tieneAlquilado(Vehiculo $vehiculoAlquilar): bool {
-//        foreach ($this->vehiculosAlquilados as $vehiculo) {
-//            if ($vehiculo->getNumero() === $vehiculoAlquilar->getNumero()) {
-//                return true;
-//            }
-//        }
-//        return false;
-
         return in_array($vehiculoAlquilar, $this->vehiculosAlquilados, true);
     }
 
     public function alquilar(Vehiculo $vehiculoAlquilar): bool {
         if ($this->tieneAlquilado($vehiculoAlquilar)) {
-            echo "<p>El cliente " . $this->nombre . "ya tiene alquilado el vehículo número " . $vehiculoAlquilar->getNumero() . ".</p>";
+            echo "<p>El cliente " . $this->nombre . " ya tiene alquilado el vehículo número " . $vehiculoAlquilar->getNumero() . ".</p>";
             return false;
         }
 
@@ -62,21 +56,16 @@ class Cliente {
         return true;
     }
 
-
     public function devolver(int $numVehiculo): bool {
         foreach ($this->vehiculosAlquilados as $indice => $vehiculo) {
             if ($vehiculo->getNumero() === $numVehiculo) {
-//                unset($this->vehiculosAlquilados[$indice]);
-//                $this->vehiculosAlquilados = array_values($this->vehiculosAlquilados);
-
                 array_splice($this->vehiculosAlquilados, $indice, 1);
-
                 echo "<p>El vehículo con número " . $numVehiculo . " ha sido devuelto por " . $this->nombre . ".</p>";
                 return true;
             }
         }
 
-        echo "<p>Aviso: El cliente " . $this->nombre . "no tiene ningún vehículo alquilado con el número " . $numVehiculo . ".</p>";
+        echo "<p>Aviso: El cliente " . $this->nombre . " no tiene ningún vehículo alquilado con el número " . $numVehiculo . ".</p>";
         return false;
     }
 
@@ -94,7 +83,6 @@ class Cliente {
             echo "</ul>";
         }
     }
-
 
     public function muestraResumen(): void {
         echo "<p>Nombre: <strong>" . $this->nombre . "</strong></p>";
