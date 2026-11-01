@@ -5,6 +5,7 @@ require_once 'Resumible.php';
 
 abstract class Vehiculo implements Resumible {
     private static float $IVA = 0.21;
+    public bool $alquilado = false;
 
     public function __construct(
         public string $titulo,
@@ -29,5 +30,6 @@ abstract class Vehiculo implements Resumible {
         echo "Número: " . $this->numero . " | ";
         echo "Precio base: " . $this->precio . " | ";
         echo "Precio con IVA: " . $this->getPrecioConIVA() . " | ";
+        echo "Alquilado: " . ($this->alquilado ? "Sí" : "No") . " | ";
     }
 }
